@@ -1,4 +1,4 @@
-# express-mysql
+# dytt-api
 
 > A Node.js project
 
