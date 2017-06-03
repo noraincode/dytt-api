@@ -15,7 +15,7 @@ const dytt = require('./tools/dytt-movie');
 Promise.resolve([web]).each(function (app){
     app.start();
     if (process.env.MODE_ENV === 'production') {
-        //设置一个定时执行任务
+        //TODO：设置一个定时执行任务
     } else {
         //开发环境启动时执行一次
         dytt.getMovie();

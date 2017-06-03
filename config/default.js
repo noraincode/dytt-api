@@ -52,7 +52,7 @@ module.exports = {
         username: 'root',
         password: '',
         port: 3306,
-        database: 'express_mysql',
+        database: 'dytt',
         connectTimeout: 5000,
         waitForConnections: true,
         connectionLimit: 50,
