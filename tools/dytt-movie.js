@@ -50,18 +50,35 @@ async function getMovieInfo(url) {
   let html = iconv.decode(htmlData, 'gb2312');
   let $ = cheerio.load(html, {decodeEntities: false});
   info.poster = $('#Zoom').find('img')[0].attribs.src; //海报图片
-  info.transName = $('#Zoom :contains("◎")')[1].children[6].data;  //译名
-  info.filmName = $('#Zoom :contains("◎")')[1].children[8].data; //片名
-  info.year = $('#Zoom :contains("◎")')[1].children[10].data; //年代
-  info.place = $('#Zoom :contains("◎")')[1].children[12].data; //产地
-  info.movietype = $('#Zoom :contains("◎")')[1].children[14].data; //类别
-  info.language = $('#Zoom :contains("◎")')[1].children[16].data; //语言
-  info.subtitles = $('#Zoom :contains("◎")')[1].children[18].data; //字幕
-  info.imdb = $('#Zoom :contains("◎")')[1].children[20].data;  //IMDB评分
-  info.douban = $('#Zoom :contains("◎")')[1].children[22].data;  //豆瓣评分
-  info.director = $('#Zoom :contains("◎")')[1].children[30].data;  //导演
-  info.staring = $('#Zoom :contains("◎")')[1].children[32].data;  //主演
   info.image = $('#Zoom').find('img')[1].attribs.src; // 简介图片
+  $('#Zoom p')[0].children.forEach((e ,index) => {
+    if (e.type == 'text') {
+      let val = e.data.replace(/\s+/g, '');
+      if (val.indexOf('译名') >= 0) {
+        info.transName = val.substr(3);
+      } else if (val.indexOf('片名') >= 0) {
+        info.filmName = val.substr(3);
+      } else if (val.indexOf('年代') >= 0) {
+        info.year = val.substr(3);
+      } else if (val.indexOf('产地') >= 0) {
+        info.place = val.substr(3);
+      } else if (val.indexOf('类别') >= 0) {
+        info.movietype = val.substr(3);
+      } else if (val.indexOf('语言') >= 0) {
+        info.language = val.substr(3);
+      } else if (val.indexOf('字幕') >= 0) {
+        info.subtitles = val.substr(3);
+      } else if (val.indexOf('IMDb') >= 0) {
+        info.imdb = val.substr(7);
+      } else if (val.indexOf('豆瓣') >= 0) {
+        info.douban = val.substr(5);
+      } else if (val.indexOf('导演') >= 0 && val.length < 50) {
+        info.director = val.substr(3);
+      } else if (val.indexOf('主演') >= 0 && val.length < 50) {
+        info.staring = val.substr(3);
+      }
+    } 
+  })
   //获取下载链接
   $('#Zoom td').children('a').each(function (idx, element) {
     var $element = $(element);

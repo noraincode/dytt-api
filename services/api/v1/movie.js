@@ -13,8 +13,16 @@ module.exports = {
   getAllMovies
 }
 
-function addMovie(opt) {
-  return db.Movie.create(opt);
+async function addMovie(opt) {
+  let where = {
+    transName: opt.transName
+  }
+  let result = await db.Movie.find({where});
+  if (result.transName) {
+    return;
+  } else {
+    return db.Movie.create(opt);
+  }
 }
 
 function getAllMovies() {
