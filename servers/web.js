@@ -71,8 +71,9 @@ function start(){
         if (err){
             logger.error(err)
         } else {
-            app.listen(config.web.port, function(){
-                logger.info(config.web.name, config.web.url, 'start up!')
+            const port = process.env.PORT || config.web.port;
+            app.listen(port, function(){
+                logger.info(`${pkg.name} listening on port ${port}`)
             });
         }
     });

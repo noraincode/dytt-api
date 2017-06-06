@@ -17,12 +17,12 @@ async function addMovie(opt) {
   let where = {
     transName: opt.transName
   }
-  let result = await db.Movie.find({where});
-  if (result.transName) {
-    return;
-  } else {
+  // let result = await db.Movie.find({where});
+  // if (result.transName) {
+  //   return;
+  // } else {
     return db.Movie.create(opt);
-  }
+  // }
 }
 
 function getAllMovies() {
