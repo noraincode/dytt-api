@@ -53,7 +53,7 @@ module.exports = {
         password: 'password',
         port: 3306,
         database: 'dytt_api',
-        connectTimeout: 5000,
+        connectTimeout: 50000,
         waitForConnections: true,
         connectionLimit: 50,
         logging: true
