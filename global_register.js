@@ -17,4 +17,4 @@ global.logger           = require('./tools/logger');
 global.db               = require('./models');
 global.cache            = require('./lib/cache');
 global.handleError      = require('./middlewares/error_handle');
-// global.checkParams      = require('./middlewares/check-params');
+global.checkParams      = require('./middlewares/check-params');

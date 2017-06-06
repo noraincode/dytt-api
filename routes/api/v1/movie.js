@@ -32,5 +32,5 @@ const schema = {
 const getSchema = _.pick(schema.query, ['page', 'pagesize']);
 
 module.exports = (router) => {
-    router.get('/getmovies', movieCtrl.getAllMovies); // checkParams(getSchema),
+    router.get('/getmovies', checkParams(getSchema), movieCtrl.getAllMovies); // checkParams(getSchema),
 }

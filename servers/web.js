@@ -25,7 +25,7 @@ const compression       = require('compression');
 const pkg               = require('../package.json');
 const router            = require('../routes');
 const formatResp        = require('../middlewares/format-resp');
-// const checkParmaSetting = require('../middlewares/check-params/settings');
+const checkParmaSetting = require('../middlewares/check-params/settings');
 
 const app = express();
 
@@ -58,7 +58,7 @@ app.use(expressSession({
 app.use(serveFavicon(path.join(__dirname, '../public/fav.ico')));
 app.use(express.static(config.static.dir, {maxAge: config.static.maxAge}));
 app.use(express.static(config.static.main));
-// app.use(expressValidator(checkParmaSetting));
+app.use(expressValidator(checkParmaSetting));
 
 app.use(router);
 
