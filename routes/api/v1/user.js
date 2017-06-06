@@ -32,5 +32,5 @@ const schema = {
 const getSchema = _.pick(schema.query, ['page', 'pagesize']);
 
 module.exports = (router) => {
-    router.get('/', checkParams(getSchema), userCtrl.getUser);
+    router.get('/',  userCtrl.getUser); //checkParams(getSchema),
 }

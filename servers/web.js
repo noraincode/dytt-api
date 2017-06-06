@@ -58,7 +58,7 @@ app.use(expressSession({
 app.use(serveFavicon(path.join(__dirname, '../public/fav.ico')));
 app.use(express.static(config.static.dir, {maxAge: config.static.maxAge}));
 app.use(express.static(config.static.main));
-app.use(expressValidator(checkParmaSetting));
+// app.use(expressValidator(checkParmaSetting));
 
 app.use(router);
 
