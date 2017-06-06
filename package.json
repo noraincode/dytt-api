@@ -2,15 +2,15 @@
   "name": "dytt-datacenter",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "7.7.1",
+    "npm": "4.1.2"
+  },
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
     "heroku": "NODE_ENV=production node --harmony app.js"
-  },
-  "engines": {
-    "node": "7.x",
-    "npm": "4.1.x"  //npm 的版本不需指明，可选  
   },
   "author": "norain",
   "license": "ISC",
