@@ -24,4 +24,5 @@ const router = module.exports = express.Router();
 
 const v1    = createRouter(path.join(__dirname, 'api/v1'));
 
+router.use('/',v1);
 router.use('/api/v1', v1);

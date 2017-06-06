@@ -20,5 +20,5 @@ async function getUser (req, res, next){
         pagesize: req.query.pagesize || 10
     };
     let ret = await userService.getUser(options);
-    return next({code: 200, status: 'OK', msg: ret});
+    return next({code: 200, status: 'OK', msg: '看到这段文字基本表示成功了'});
 }
