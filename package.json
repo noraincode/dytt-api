@@ -8,6 +8,10 @@
     "start": "node app.js",
     "heroku": "NODE_ENV=production node --harmony app.js"
   },
+  "engines": {
+    "node": "7.x",
+    "npm": "4.1.x"  //npm 的版本不需指明，可选  
+  },
   "author": "norain",
   "license": "ISC",
   "dependencies": {
