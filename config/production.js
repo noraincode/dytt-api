@@ -48,11 +48,11 @@ module.exports = {
         opt         : {auth_pass: ''}
     },
     mysql: {
-        host: 'db4free.net',
-        username: 'lrain',
-        password: 'password',
+        host: 'mysql.hostinger.com.hk',
+        username: 'u502792277_root',
+        password: 'bQIxJ5m9tlnR',
         port: 3306,
-        database: 'dytt_api',
+        database: 'u502792277_dytt',
         connectTimeout: 50000,
         waitForConnections: true,
         connectionLimit: 50,
